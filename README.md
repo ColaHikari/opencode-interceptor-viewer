@@ -89,6 +89,9 @@ Or use the input field in the web UI.
 ### Request Tab — Message Diffing
 <img src="docs/screenshots/request-diff.png" width="100%" alt="Request Diff">
 
+### Request Tab — Markdown + Outline
+<img src="docs/screenshots/request-md.png" width="100%" alt="Request Markdown">
+
 ### Response Tab — Markdown + Outline
 <img src="docs/screenshots/response-md.png" width="100%" alt="Response Markdown">
 

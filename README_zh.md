@@ -105,6 +105,9 @@ npm run dev
 ### Request 标签页 — 消息 Diff
 <img src="docs/screenshots/request-diff.png" width="100%" alt="消息 Diff">
 
+### Request 标签页 — Markdown + 大纲
+<img src="docs/screenshots/request-md.png" width="100%" alt="Request Markdown">
+
 ### Response 标签页 — Markdown + 大纲
 <img src="docs/screenshots/response-md.png" width="100%" alt="Markdown 响应">
 
