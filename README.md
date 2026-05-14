@@ -1,160 +1,187 @@
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/opencode--viewer-0.1.0-58a6ff?style=for-the-badge&logo=nextdotjs&logoColor=white">
-    <img alt="opencode-viewer" src="https://img.shields.io/badge/opencode--viewer-0.1.0-0969da?style=for-the-badge&logo=nextdotjs&logoColor=white">
-  </picture>
+  <img src="https://img.shields.io/badge/opencode--viewer-0.1.0-58a6ff?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="opencode-viewer">
+</p>
+
+<h3 align="center">Local web UI for browsing <code>opencode-interceptor</code> LLM traffic</h3>
+<h4 align="center">本地网页工具：浏览 <code>opencode-interceptor</code> 抓取的 LLM 请求/响应数据</h4>
+
+<p align="center">
+  <a href="#quick-start">Quick Start</a> ·
+  <a href="#features">Features</a> ·
+  <a href="#screenshots">Screenshots</a> ·
+  <a href="#project-structure">Structure</a> ·
+  <a href="#中文说明">中文说明</a>
 </p>
 
 <p align="center">
-  A local web UI for browsing and analyzing <code>opencode-interceptor</code> captured LLM request/response data.
+  <img src="https://img.shields.io/badge/Next.js-16-black?logo=next.js" alt="Next.js">
+  <img src="https://img.shields.io/badge/React-19-61dafb?logo=react" alt="React">
+  <img src="https://img.shields.io/badge/Tailwind-4-06b6d4?logo=tailwindcss" alt="Tailwind">
+  <img src="https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript" alt="TS">
+  <img src="https://img.shields.io/badge/Vitest-4-6b9c3e?logo=vitest" alt="Vitest">
 </p>
 
-<p align="center">
-  <a href="#features"><strong>Features</strong></a> ·
-  <a href="#quick-start"><strong>Quick Start</strong></a> ·
-  <a href="#development"><strong>Development</strong></a> ·
-  <a href="#project-structure"><strong>Structure</strong></a>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Next.js-16-black?logo=next.js" alt="Next.js 16">
-  <img src="https://img.shields.io/badge/React-19-61dafb?logo=react" alt="React 19">
-  <img src="https://img.shields.io/badge/Tailwind-4-06b6d4?logo=tailwindcss" alt="Tailwind CSS 4">
-  <img src="https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript" alt="TypeScript 5">
-  <img src="https://img.shields.io/badge/Vitest-4-6b9c3e?logo=vitest" alt="Vitest 4">
-  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
-</p>
-
-<br>
-
-## Overview
-
-`opencode-interceptor-viewer` visualizes intercepted LLM traffic captured by `opencode-interceptor`. Instead of digging through raw JSON files, you get an interactive timeline with message diffing, markdown rendering, and search.
-
-Each LLM call in the interceptor is split into three files (`*.meta.json`, `*.request.json`, `*.response.json`). This viewer merges them back into a coherent, browsable conversation timeline.
-
-## Features
-
-### Message Timeline & Diffing
-- **Per-request timeline** — ordered list of all calls in a session with status, duration, model info
-- **Cross-call diffing** — compare consecutive requests: see only new/modified messages; repeated messages are folded into groups
-- **System prompt diff** — shows exact changes between system prompts (e.g. model name updates)
-- **Message compression detection** — when messages are truncated or summarized across calls
-
-### Request Viewer
-- **Collapsible messages** — system prompts and tool results fold by default; long content auto-collapses
-- **Markdown + Raw toggle** — every message supports both markdown-rendered and plain-text views
-- **Tool call display** — human-readable tool invocations with parsed arguments, expandable
-- **Tool results** — grouped with their corresponding calls for context
-- **Diff view** — LCS-based line diffs for modified messages, with hunk navigation (prev/next)
-
-### Response Viewer
-- **Markdown rendering** — with GitHub Flavored Markdown (tables, task lists, strikethrough) and syntax highlighting
-- **Outline panel** — auto-extracted heading tree; click to jump; floats on the right side
-- **Raw / MD toggle** — switch between rendered and source views
-- **Collapsible long bodies** — auto-truncates at 2K chars with expand button
-- **Size indicator** — shows response body byte size
-
-### Search & Filtering
-- **Full-text search** — across messages, model names, URLs, and response bodies
-- **Status filter** — 2xx / 4xx / 5xx / error
-- **Response filter** — has body / empty
-- **Provider & model filter** — narrow down by provider and model name
-
-### UX
-- **Dark / Light mode** — toggle with persistent preference (localStorage)
-- **Smooth transitions** — theme switch, scroll, expand/collapse
-- **Responsive layout** — left sidebar timeline, right detail panel
-- **Keyboard-friendly** — focus-visible outlines on all interactive elements
+---
 
 ## Quick Start
 
 ```bash
-# Clone & install
 git clone https://github.com/ColaHikari/opencode-interceptor-viewer.git
 cd opencode-interceptor-viewer
 npm install
-
-# Development server (with HMR)
-npm run dev
-# Open http://localhost:3000
-
-# Production build
-npm run build && npm start
+npm run dev     # http://localhost:3000
 ```
 
-### Point to your data
-
-The viewer looks for session directories (prefixed with `ses_`) in `tests/fixtures/` by default. To use your own interceptor data:
+By default it reads session data from `tests/fixtures/`. To use your own:
 
 ```bash
-# Option 1: Set environment variable
 export INTERCEPTOR_DATA_DIR=/tmp/opencode-interceptor/
 npm run dev
-
-# Option 2: Enter the path in the web UI
 ```
+
+Or enter the path directly in the web UI.
+
+## Features
+
+### English
+
+| Category | Feature |
+|----------|---------|
+| **Timeline** | Ordered call list with status, duration, model, and badge tags (Error / Empty / Parse Error) |
+| **Diffing** | Cross-call message comparison — repeated messages auto-folded, modified messages with diff view, new messages highlighted |
+| **Markdown** | GitHub Flavored Markdown (tables, task lists, strikethrough) + syntax highlighting via `rehype-highlight` |
+| **Outline** | Auto-extracted heading tree for long responses — click to jump, floating panel |
+| **Tool Calls** | Human-readable display — parsed function name + arguments, grouped with tool results |
+| **Search** | Full-text across messages, model, URL, response body |
+| **Filters** | Status (2xx/4xx/5xx), empty response, provider, model name |
+| **Theme** | Dark / Light mode with smooth transitions, localStorage persistence |
+| **JSON Viewer** | Collapsible tree view with full-length string display |
+| **Export** | Raw JSON tabs for both request and response |
+
+### 中文
+
+| 分类 | 功能 |
+|------|------|
+| **时间线** | 按顺序展示所有调用，含状态码、耗时、模型、标签（错误/空响应/解析异常） |
+| **差异对比** | 相邻请求消息对比 — 重复消息自动折叠，修改消息展示 diff，新增消息高亮 |
+| **Markdown** | GitHub 风格 Markdown（表格、任务列表、删除线）+ 语法高亮 |
+| **大纲导航** | 长响应自动提取标题树，点击跳转，浮动面板 |
+| **工具调用** | 人类可读展示 — 解析函数名 + 参数，工具结果与调用自动分组 |
+| **搜索** | 全文搜索消息、模型名、URL、响应体 |
+| **过滤** | 状态码（2xx/4xx/5xx）、空响应、provider、模型名 |
+| **主题** | 暗色/亮色模式切换，localStorage 持久化 |
+| **JSON 查看** | 可折叠树展示，字符串完整显示不截断 |
+| **原始数据** | 请求和响应独立 JSON 标签页 |
+
+## Screenshots
+
+### Session List
+
+<img src="docs/screenshots/homepage.svg" width="100%" alt="Homepage">
+
+### Session Detail — Overview
+
+<img src="docs/screenshots/session-detail.svg" width="100%" alt="Session Detail">
+
+### Request Tab — Message Diffing
+
+<img src="docs/screenshots/request-diff.svg" width="100%" alt="Request Diff">
+
+### Response Tab — Markdown + Outline
+
+<img src="docs/screenshots/response-md.svg" width="100%" alt="Response Markdown">
 
 ## Development
 
 ```bash
-# Unit & integration tests
-npm test                    # vitest run (excludes e2e)
-
-# E2E tests (requires build)
-npm run test:e2e           # starts next dev, runs smoke tests
-
-# Lint
-npm run lint
-
-# Build
-npm run build
+npm test              # unit + integration (vitest)
+npm run test:e2e      # e2e smoke tests
+npm run lint          # eslint
+npm run build         # production build
 ```
 
 ## Project Structure
 
 ```
 ├── app/
-│   ├── page.tsx                  # Session list homepage
-│   ├── sessions/[id]/page.tsx    # Session detail (timeline + detail)
-│   ├── api/sessions/route.ts     # Session list API
-│   ├── api/sessions/[id]/route.ts# Session detail API
-│   ├── api/search/route.ts       # Search API
-│   ├── globals.css               # Theme variables, typography plugin
-│   └── layout.tsx                # Root layout with anti-flash theme script
+│   ├── page.tsx                       # Homepage — session list with search input
+│   ├── sessions/[id]/page.tsx         # Session detail — timeline + call viewer
+│   ├── api/sessions/route.ts          # GET /api/sessions
+│   ├── api/sessions/[id]/route.ts     # GET /api/sessions/:id
+│   ├── api/search/route.ts            # GET /api/search?q=
+│   ├── globals.css                    # Theme tokens, typography plugin, dark variant
+│   └── layout.tsx                     # Root layout with anti-flash theme script
 ├── components/
-│   ├── CallDetail.tsx            # Call viewer with overview/request/response/json tabs
-│   ├── MessageBlock.tsx          # Single message with diff type, fold, md/raw toggle
-│   ├── MarkdownRenderer.tsx      # Markdown + outline panel + syntax highlighting
-│   ├── DiffView.tsx              # LCS line-diff with hunk navigation
-│   ├── ToolCallView.tsx          # Human-readable tool call display
-│   ├── JsonViewer.tsx            # Expandable JSON tree viewer
-│   ├── ThemeProvider.tsx         # Theme context + localStorage persistence
-│   └── ThemeToggle.tsx           # Dark/light mode toggle button
+│   ├── CallDetail.tsx                 # 5-tab viewer (Overview/Request/Response/JSON×2)
+│   ├── MessageBlock.tsx               # Single message — role badge, fold, MD/Raw toggle
+│   ├── MarkdownRenderer.tsx           # Markdown + outline panel + scroll tracking
+│   ├── DiffView.tsx                   # LCS line-diff with hunk prev/next navigation
+│   ├── ToolCallView.tsx               # Tool call human-readable display
+│   ├── JsonViewer.tsx                 # Collapsible JSON tree
+│   ├── ThemeProvider.tsx              # Theme context + localStorage
+│   └── ThemeToggle.tsx                # Sun/moon icon toggle button
 ├── lib/
-│   ├── parser.ts                 # Server-side file parsing (fs-based)
-│   ├── message-utils.ts          # Client-safe diff/pure functions
-│   ├── types.ts                  # TypeScript type definitions
-│   └── utils.ts                  # Shared formatters + MD_PROSE constant
+│   ├── parser.ts                      # Server-side — scan dirs, parse JSON, normalize data
+│   ├── message-utils.ts               # Client-safe — diffMessages, computeDiff, parseToolCalls
+│   ├── types.ts                       # TypeScript interfaces
+│   └── utils.ts                       # Shared formatters + MD_PROSE CSS constant
 └── tests/
-    ├── unit/                     # Unit tests (parser, components)
-    ├── integration/              # API route integration tests
-    ├── e2e/                      # End-to-end smoke tests
-    ├── fixtures/                 # Real interceptor capture + synthetic test data
-    └── setup.ts                  # Vitest setup (jest-dom matchers)
+    ├── unit/                          # Parser + component unit tests
+    ├── integration/                   # API route integration tests
+    ├── e2e/                           # Full-stack smoke tests
+    ├── fixtures/                      # Real interceptor data + synthetic test data
+    └── setup.ts                       # jest-dom matchers
 ```
 
 ## Tech Stack
 
 | Layer | Technology |
-|---|---|
-| Framework | [Next.js 16](https://nextjs.org/) (App Router) |
-| UI Library | [React 19](https://react.dev/) |
-| Styling | [Tailwind CSS 4](https://tailwindcss.com/) + `@tailwindcss/typography` |
-| Markdown | [react-markdown](https://github.com/remarkjs/react-markdown) + [remark-gfm](https://github.com/remarkjs/remark-gfm) + [rehype-highlight](https://github.com/rehypejs/rehype-highlight) |
-| Testing | [Vitest](https://vitest.dev/) + [Testing Library](https://testing-library.com/) |
-| Linting | [ESLint](https://eslint.org/) + `eslint-config-next` |
+|-------|-----------|
+| Framework | Next.js 16 (App Router) |
+| UI | React 19 + Tailwind CSS 4 |
+| Typography | `@tailwindcss/typography` |
+| Markdown | `react-markdown` + `remark-gfm` + `rehype-highlight` |
+| Testing | Vitest 4 + Testing Library + Playwright (e2e) |
+| Linting | ESLint + `eslint-config-next` |
+
+---
+
+## 中文说明
+
+`opencode-interceptor-viewer` 是一个本地网页工具，用于可视化浏览 [`opencode-interceptor`](https://github.com/anomalyco/opencode-interceptor) 抓取的 LLM 调用数据。
+
+### 数据格式
+
+Interceptor 把每次 LLM 调用拆成三个 JSON 文件：
+
+| 文件 | 内容 |
+|------|------|
+| `*.meta.json` | 请求元信息：URL、状态码、耗时、字节数 |
+| `*.request.json` | 完整请求体：model、messages、tools、参数 |
+| `*.response.json` | 响应数据：body（重建文本）、bodyFormat、错误信息 |
+
+### 核心设计
+
+**消息差异对比** — 查看相邻两次请求的消息变化：
+
+```
+call N-1:  [sys, user, assistant, tool, user]     ← 5 messages
+call N:    [sys, user, assistant, tool, user, assistant (new!)]
+
+显示:  [5 repeated 折叠] → [assistant 新增，展开]
+```
+
+**折叠策略**：
+- System prompt → 始终可折叠，显示大小 + 是否变化
+- 重复消息组 → 按连续段独立折叠
+- Tool 结果 → 超过 500 字符默认折叠
+
+**不做的事**：
+- 不修改 interceptor 原始文件
+- 不忽略 system prompt 任何部分
+- 不去掉 `<system-reminder>` 包装
+- 单个文件解析失败不影响整个 session 打开
 
 ## License
 
-[MIT](LICENSE)
+MIT
