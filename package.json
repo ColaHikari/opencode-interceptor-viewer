@@ -10,6 +10,7 @@
   },
   "files": [
     ".next",
+    "!/.next/dev",
     "public",
     "cli.mjs",
     "package.json"

@@ -1,0 +1,10 @@
+.next/dev
+tests/
+scripts/
+docs/
+node_modules/
+.idea/
+.gitignore
+*.tsbuildinfo
+AGENTS.md
+BLUEPRINT.md
