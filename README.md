@@ -93,7 +93,7 @@ Or use the input field in the web UI.
 <img src="docs/screenshots/request-md.png" width="100%" alt="Request Markdown">
 
 ### Response Tab — Markdown + Outline
-<img src="docs/screenshots/response-md.png" width="100%" alt="Response Markdown">
+<img src="docs/screenshots/request-md.png" width="100%" alt="Response Markdown">
 
 ## Development
 

@@ -109,7 +109,7 @@ npm run dev
 <img src="docs/screenshots/request-md.png" width="100%" alt="Request Markdown">
 
 ### Response 标签页 — Markdown + 大纲
-<img src="docs/screenshots/response-md.png" width="100%" alt="Markdown 响应">
+<img src="docs/screenshots/request-md.png" width="100%" alt="Markdown 响应">
 
 ## 开发命令
 
