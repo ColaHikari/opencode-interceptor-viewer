@@ -26,7 +26,9 @@
 
 ## 概述
 
-`opencode-interceptor-viewer` 是一个本地网页工具，用于可视化 [`opencode-interceptor`](https://github.com/anomalyco/opencode-interceptor) 抓取的 LLM 调用数据。不用再手动翻阅原始 JSON 文件，直接通过交互式时间线浏览，支持消息差异对比、Markdown 渲染和全文搜索。
+`opencode-interceptor-viewer` 是一个本地网页工具，用于可视化 [`opencode-interceptor`](https://github.com/cortexkit/opencode-interceptor) 抓取的 LLM 调用数据。不用再手动翻阅原始 JSON 文件，直接通过交互式时间线浏览，支持消息差异对比、Markdown 渲染和全文搜索。
+
+[`opencode-interceptor`](https://github.com/cortexkit/opencode-interceptor) 是一个轻量级 HTTP 拦截器，用于捕获 LLM API 的请求和响应（兼容 OpenAI / Anthropic 格式）。它把每次调用保存为三个独立的 JSON 文件——元信息、请求体、响应体——按 session 目录存放在 `/tmp/opencode-interceptor/` 下。本查看器读取这些目录，并以可浏览的 UI 展示数据。
 
 ## 数据格式
 
@@ -43,20 +45,28 @@ Interceptor 把每次 LLM 调用拆成三个文件：
 ## 快速开始
 
 ```bash
+# 一键启动 (需要 Node.js)
+npx opencode-viewer
+
+# 或指定端口
+npx opencode-viewer --port 8000
+
+# 或克隆到本地运行
 git clone https://github.com/ColaHikari/opencode-interceptor-viewer.git
 cd opencode-interceptor-viewer
 npm install
-npm run dev            # 打开 http://localhost:3000
+npm run build
+npm start
 ```
 
-默认从 `tests/fixtures/` 读取 session 数据。如需使用自己的数据：
+查看器默认从 `/tmp/opencode-interceptor/` 读取 session 数据（`opencode-interceptor` 的默认输出路径）。如需使用自定义数据目录：
 
 ```bash
-export INTERCEPTOR_DATA_DIR=/tmp/opencode-interceptor/
-npm run dev
+export INTERCEPTOR_DATA_DIR=/path/to/interceptor/output
+npx opencode-viewer
 ```
 
-或在 Web UI 中直接输入路径。
+或在 Web UI 中输入路径。
 
 ## 功能特性
 

@@ -1,11 +1,23 @@
 {
   "name": "opencode-viewer",
   "version": "0.1.0",
-  "private": true,
+  "description": "Local web UI for browsing opencode-interceptor captured LLM traffic",
+  "keywords": ["opencode", "interceptor", "llm", "viewer", "debug", "ai"],
+  "repository": "github:ColaHikari/opencode-interceptor-viewer",
+  "license": "MIT",
+  "bin": {
+    "opencode-viewer": "./cli.mjs"
+  },
+  "files": [
+    ".next",
+    "public",
+    "cli.mjs",
+    "package.json"
+  ],
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p ${PORT:-3000}",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p ${PORT:-3000}",
     "lint": "eslint",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -13,6 +25,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",
+    "get-port": "^7.2.0",
     "next": "16.2.6",
     "react": "19.2.4",
     "react-dom": "19.2.4",

@@ -11,8 +11,8 @@ function createRequest(url: string): Request {
 }
 
 describe("API /api/sessions", () => {
-  it("should return session list from default fixtures", async () => {
-    const req = createRequest("/api/sessions");
+  it("should return session list", async () => {
+    const req = createRequest(`/api/sessions?baseDir=${encodeURIComponent(TEST_FIXTURES)}`);
     const res = await listSessions(req);
     const data = await res.json();
 
@@ -23,7 +23,7 @@ describe("API /api/sessions", () => {
   });
 
   it("should include session fields", async () => {
-    const req = createRequest("/api/sessions");
+    const req = createRequest(`/api/sessions?baseDir=${encodeURIComponent(TEST_FIXTURES)}`);
     const res = await listSessions(req);
     const data = await res.json();
 

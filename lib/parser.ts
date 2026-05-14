@@ -13,7 +13,7 @@ import {
 } from "./types";
 
 function getBaseDir(): string {
-  return process.env.INTERCEPTOR_DATA_DIR || path.join(process.cwd(), "tests", "fixtures");
+  return process.env.INTERCEPTOR_DATA_DIR || path.join("/tmp", "opencode-interceptor");
 }
 
 export function listSessionDirs(baseDir?: string): string[] {

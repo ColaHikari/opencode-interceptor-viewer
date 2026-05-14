@@ -26,27 +26,37 @@
 
 ## Overview
 
-`opencode-interceptor-viewer` is a local web tool that visualizes intercepted LLM traffic captured by [`opencode-interceptor`](https://github.com/anomalyco/opencode-interceptor). Instead of digging through raw JSON files, you get an interactive timeline with message diffing, markdown rendering, and search.
+`opencode-interceptor-viewer` is a local web tool that visualizes intercepted LLM traffic captured by [`opencode-interceptor`](https://github.com/cortexkit/opencode-interceptor). Instead of digging through raw JSON files, you get an interactive timeline with message diffing, markdown rendering, and search.
+
+[`opencode-interceptor`](https://github.com/cortexkit/opencode-interceptor) is a lightweight HTTP interceptor that captures LLM API requests and responses (OpenAI / Anthropic compatible endpoints). It saves each call as three separate JSON files — metadata, request body, and response body — into session directories under `/tmp/opencode-interceptor/`. This viewer reads those directories and presents the data in a browsable UI.
 
 Each LLM call is split into three files (`*.meta.json`, `*.request.json`, `*.response.json`). This viewer merges them into a coherent, browsable conversation timeline.
 
 ## Quick Start
 
 ```bash
+# One-command launch (requires Node.js)
+npx opencode-viewer
+
+# Or with a custom port
+npx opencode-viewer --port 8000
+
+# Or clone and run locally
 git clone https://github.com/ColaHikari/opencode-interceptor-viewer.git
 cd opencode-interceptor-viewer
 npm install
-npm run dev            # http://localhost:3000
+npm run build
+npm start
 ```
 
-The viewer looks for session directories (`ses_*`) in `tests/fixtures/` by default. To point to your own interceptor data:
+The viewer reads session data from `/tmp/opencode-interceptor/` (the default output path of `opencode-interceptor`). To use a custom data directory:
 
 ```bash
-export INTERCEPTOR_DATA_DIR=/tmp/opencode-interceptor/
-npm run dev
+export INTERCEPTOR_DATA_DIR=/path/to/interceptor/output
+npx opencode-viewer
 ```
 
-Or use the input field in the web UI.
+Or enter the path directly in the web UI.
 
 ## Features
 
