@@ -1,0 +1,11 @@
+{
+  "body": {
+    "model": "test-model-v1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Count to 100"
+      }
+    ]
+  }
+}

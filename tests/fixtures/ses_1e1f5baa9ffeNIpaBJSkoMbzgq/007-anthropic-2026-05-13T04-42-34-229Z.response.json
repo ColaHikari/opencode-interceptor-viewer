@@ -1,0 +1,8 @@
+{
+  "status": 200,
+  "statusText": "OK",
+  "body": "Let me first see what this file is.",
+  "bodyFormat": "replay-text",
+  "bodyReadError": null,
+  "bodyOmittedReason": null
+}

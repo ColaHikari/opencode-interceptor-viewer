@@ -1,0 +1,8 @@
+{
+  "status": 200,
+  "statusText": "OK",
+  "body": "我是 Sisyphus，由 **GLM-5.1** 模型驱动（模型 ID: `opencode-go/glm-5.1`）。一个专注代码编排和多智能体协作的工程代理。",
+  "bodyFormat": "replay-text",
+  "bodyReadError": null,
+  "bodyOmittedReason": null
+}

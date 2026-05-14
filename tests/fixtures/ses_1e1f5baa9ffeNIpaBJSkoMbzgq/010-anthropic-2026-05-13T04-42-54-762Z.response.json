@@ -1,0 +1,8 @@
+{
+  "status": 200,
+  "statusText": "OK",
+  "body": "明白了。这是 OpenCode interceptor 抓下来的 Anthropic API 会话目录，每条请求有三个 JSON 文件。让我看看 response 的具体格式。",
+  "bodyFormat": "replay-text",
+  "bodyReadError": null,
+  "bodyOmittedReason": null
+}

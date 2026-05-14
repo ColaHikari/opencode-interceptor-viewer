@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-05-12T21:20:00.000Z",
+  "url": "https://example.com/v1/chat/completions",
+  "method": "POST",
+  "status": 200,
+  "contentType": "text/event-stream",
+  "durationMs": 3000,
+  "requestBytes": 15000,
+  "responseBytes": 50000,
+  "capturedBytes": 65000
+}

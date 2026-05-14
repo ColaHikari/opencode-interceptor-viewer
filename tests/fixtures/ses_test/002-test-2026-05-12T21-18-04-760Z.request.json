@@ -1,0 +1,11 @@
+{
+  "body": {
+    "model": "test-model-v2",
+    "messages": [
+      {
+        "role": "user",
+        "content": "What is the capital of France?"
+      }
+    ]
+  }
+}

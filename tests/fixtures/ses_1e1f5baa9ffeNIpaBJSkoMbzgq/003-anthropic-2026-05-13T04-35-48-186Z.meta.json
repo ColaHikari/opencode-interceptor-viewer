@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-05-13T04:35:48.186Z",
+  "url": "https://api.deepseek.com/chat/completions",
+  "method": "POST",
+  "status": 200,
+  "contentType": "text/event-stream; charset=utf-8",
+  "durationMs": 178,
+  "requestBytes": 104347,
+  "responseBytes": 85317,
+  "capturedBytes": 189664
+}

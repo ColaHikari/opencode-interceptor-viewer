@@ -1,0 +1,8 @@
+{
+  "status": 200,
+  "statusText": "OK",
+  "body": "了解了，这个文件夹里每一条记录都是这样的结构：\n\n- `*.meta.json` — 请求元信息（时间、URL、耗时、字节数）\n- `*.request.json` — 完整的请求体（system prompt + messages）\n- `*.response.json` — 响应，`bodyFormat` 为 `replay-text`（body 里是 LLM 返回的纯文本）\n\n目前的问题是：流式响应的 `body` 字段只保留了最后的\"回放文本\"，且部分被截断（0 字节），原始 SSE event 流并未完整保留。对于这种 structured 目录形式，最实用的办法是写一个小脚本把整个对话重塑出来。需要我给你写一个吗？\n\n直接的效果就是一条命令跑完，终端里看到整个会话流：\n\n```\n=== 会话 001 | 2026-05-12T21:16:40 | 1.6s | 11KB ===\nUser: 你是什么模型\nAssistant: 我是 Sisyphus，由 **GLM-5.1** 模型驱动...\n\n=== 会话 002 | 2026-05-12T21:18:04 | 1.3s | 17KB ===\nUser: ...\nAssistant: ...\n```\n\n这样读起来比对着散文件翻页快很多。你觉得需要吗？",
+  "bodyFormat": "replay-text",
+  "bodyReadError": null,
+  "bodyOmittedReason": null
+}

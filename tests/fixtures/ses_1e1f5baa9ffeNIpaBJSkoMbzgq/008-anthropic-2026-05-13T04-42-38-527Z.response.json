@@ -1,0 +1,8 @@
+{
+  "status": 200,
+  "statusText": "OK",
+  "body": "它是一个目录，让我看看里面有什么。",
+  "bodyFormat": "replay-text",
+  "bodyReadError": null,
+  "bodyOmittedReason": null
+}

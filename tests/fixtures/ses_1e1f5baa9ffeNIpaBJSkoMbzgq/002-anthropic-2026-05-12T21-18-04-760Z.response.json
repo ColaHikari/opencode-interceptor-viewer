@@ -1,0 +1,8 @@
+{
+  "status": 200,
+  "statusText": "OK",
+  "body": "我是 Sisyphus，一个基于 **GLM-5.1** 模型的 AI 编排代理，来自 OhMyOpenCode。\n\n我的核心职能是：分析任务、路由给合适的专家代理、监督执行、验证结果。简单说，我是把活干好的 orchestrator，不是普通的聊天助手。\n\n有什么需要帮忙的？",
+  "bodyFormat": "replay-text",
+  "bodyReadError": null,
+  "bodyOmittedReason": null
+}

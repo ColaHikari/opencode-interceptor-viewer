@@ -1,0 +1,8 @@
+{
+  "status": 500,
+  "statusText": "Internal Server Error",
+  "body": null,
+  "bodyFormat": null,
+  "bodyReadError": "Connection reset",
+  "bodyOmittedReason": "server error"
+}

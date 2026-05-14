@@ -1,0 +1,8 @@
+{
+  "status": 200,
+  "statusText": "OK",
+  "body": "这是一组 Anthropic API 的 intercepted 请求/响应。每一条有 meta / request / response 三个 JSON 文件。让我看看具体结构。",
+  "bodyFormat": "replay-text",
+  "bodyReadError": null,
+  "bodyOmittedReason": null
+}

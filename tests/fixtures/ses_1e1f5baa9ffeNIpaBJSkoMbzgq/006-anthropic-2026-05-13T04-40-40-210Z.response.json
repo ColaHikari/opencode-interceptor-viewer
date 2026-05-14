@@ -1,0 +1,8 @@
+{
+  "status": 200,
+  "statusText": "OK",
+  "body": "有的，几个好用的纯在线工具（全都在浏览器本地解析，不传服务器）：\n\n## SSE 流式响应解析\n\n| 网站 | 说明 |\n|---|---|\n| [puredevtools.tools/sse-stream-parser](https://puredevtools.tools/sse-stream-parser) | 粘贴原始 SSE → 自动识别 OpenAI / Anthropic 格式，逐 chunk 展示 JSON + 重组完整文本。从 Network 面板 copy 的 EventStream 直接扔进去就行 |\n| [codeutils.app/tools/stream-visualizer](https://codeutils.app/tools/stream-visualizer) | 支持 SSE / NDJSON / OpenAI / Anthropic 四种格式自动检测，还有 replay 模拟流式播放功能，可导出为多种格式 |\n| [beautifysse.com](https://beautifysse.com) | SSE 美化查看器，支持 OpenAI / Anthropic / Vercel AI SDK 格式，有示例一键试看 |\n| [toolshu.com/en/sse](https://toolshu.com/en/sse) | 在线 SSE 调试器，支持活连到 API 端点实时测试 + 离线粘贴解析，可按 key path（如 `choices[0].delta.content`）提取内容 |\n\n## JSON / 结构化输出\n\n| 网站 | 说明 |\n|---|---|\n| [jsontech.net](https://jsontech.net) | 一站式：格式化 + 校验 + 修复 + Schema 校验 + 对比，专门针对 LLM 输出场景（尾逗号、markdown fence 等） |\n| [tokentamer.app](https://tokentamer.app) | JSON 格式化 + **token 用量可视化**（按节点显示 token 消耗），适合优化 prompt 成本 |\n\n如果你主要在 Chrome DevTools 里抓 SSE，[puredevtools.tools/sse-stream-parser](https://puredevtools.tools/sse-stream-parser) 最快——复制原始响应体，粘贴进去，立即看到完整文本和逐 chunk 拆解。",
+  "bodyFormat": "replay-text",
+  "bodyReadError": null,
+  "bodyOmittedReason": null
+}

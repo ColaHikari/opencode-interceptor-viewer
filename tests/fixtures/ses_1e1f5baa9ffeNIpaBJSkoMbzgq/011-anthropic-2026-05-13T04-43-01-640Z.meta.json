@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-05-13T04:43:01.640Z",
+  "url": "https://opencode.ai/zen/go/v1/chat/completions",
+  "method": "POST",
+  "status": 200,
+  "contentType": "text/event-stream; charset=utf-8",
+  "durationMs": 1507,
+  "requestBytes": 266665,
+  "responseBytes": 138837,
+  "capturedBytes": 405502
+}
