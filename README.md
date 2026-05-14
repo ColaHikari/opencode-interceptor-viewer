@@ -35,28 +35,21 @@ Each LLM call is split into three files (`*.meta.json`, `*.request.json`, `*.res
 ## Quick Start
 
 ```bash
-# One-command launch (requires Node.js)
-npx opencode-viewer
+# One-command launch with npx (no install needed)
+npx opencode-viewer                    # port 3000 (auto-fallback if taken)
+npx opencode-viewer --port 8080        # custom port
 
-# Or with a custom port
-npx opencode-viewer --port 8000
+# Pipe interceptor output directory explicitly
+export INTERCEPTOR_DATA_DIR=/tmp/opencode-interceptor/
+npx opencode-viewer
 
 # Or clone and run locally
 git clone https://github.com/ColaHikari/opencode-interceptor-viewer.git
 cd opencode-interceptor-viewer
-npm install
-npm run build
-npm start
+npm install && npm run build && npm start
 ```
 
-The viewer reads session data from `/tmp/opencode-interceptor/` (the default output path of `opencode-interceptor`). To use a custom data directory:
-
-```bash
-export INTERCEPTOR_DATA_DIR=/path/to/interceptor/output
-npx opencode-viewer
-```
-
-Or enter the path directly in the web UI.
+> **Note:** The viewer reads session data from `/tmp/opencode-interceptor/` by default (the `opencode-interceptor` output path). Override via `INTERCEPTOR_DATA_DIR` env var or the web UI input.
 
 ## Features
 

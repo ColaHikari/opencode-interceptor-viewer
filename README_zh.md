@@ -45,28 +45,21 @@ Interceptor 把每次 LLM 调用拆成三个文件：
 ## 快速开始
 
 ```bash
-# 一键启动 (需要 Node.js)
-npx opencode-viewer
+# 使用 npx 一键启动（无需安装）
+npx opencode-viewer                    # 端口 3000（占用时自动换随机端口）
+npx opencode-viewer --port 8080        # 自定义端口
 
-# 或指定端口
-npx opencode-viewer --port 8000
+# 指定 interceptor 输出目录
+export INTERCEPTOR_DATA_DIR=/tmp/opencode-interceptor/
+npx opencode-viewer
 
 # 或克隆到本地运行
 git clone https://github.com/ColaHikari/opencode-interceptor-viewer.git
 cd opencode-interceptor-viewer
-npm install
-npm run build
-npm start
+npm install && npm run build && npm start
 ```
 
-查看器默认从 `/tmp/opencode-interceptor/` 读取 session 数据（`opencode-interceptor` 的默认输出路径）。如需使用自定义数据目录：
-
-```bash
-export INTERCEPTOR_DATA_DIR=/path/to/interceptor/output
-npx opencode-viewer
-```
-
-或在 Web UI 中输入路径。
+> **注意：** 查看器默认从 `/tmp/opencode-interceptor/` 读取 session 数据（`opencode-interceptor` 的默认输出路径）。可通过 `INTERCEPTOR_DATA_DIR` 环境变量或在 Web UI 中修改。
 
 ## 功能特性
 
